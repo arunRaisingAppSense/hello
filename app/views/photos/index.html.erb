@@ -1,0 +1,19 @@
+<%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<div class="page-header"><h1>Photos</h1></div>
+<div class="media">
+<table class = "table table-bordered table-striped">
+  <% @photos.each do |photo| %>
+  	<tr>
+  		<td width="400px" align="center">    
+      		<!-- Renders image -->
+      		<%= link_to image_tag(photo.image.url :thumb), photo.image.url, target: '_blank' %><br>
+      		<%= photo.image_file_name %>
+      	</td>
+    	<td width="400px" align="center">  <!-- Button to delete image -->
+    		<p>Image Size -> <%= photo.image_file_size / 1000 %>kb</p>
+      		<br><br><%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %><br>
+    	</td>
+	</tr>
+  <% end %>
+ </table>
+</div>
