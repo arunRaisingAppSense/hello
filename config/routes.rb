@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  #devise_for :users
-  #devise_for :users, :controllers => { :invitations => 'users' }
+  get 'welcome/index'
   devise_for :users, :controllers => { :registrations => 'registrations' }
   get 'home/index'
-  root to: "resumes#index"
+  root to: "welcome#index"
   resources :resumes, only: [:index, :new, :create, :destroy]
   resources :photos 
   

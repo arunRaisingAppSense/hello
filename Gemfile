@@ -63,7 +63,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'devise'
 gem 'heroku'
 gem 'delayed_job_active_record'
+gem 'font-awesome-rails'
+gem 'awesome_rails_console'
