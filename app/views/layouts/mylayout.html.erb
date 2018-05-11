@@ -15,21 +15,30 @@
   <%= csrf_meta_tags %>
   <!-- Adding Header using boot strap -->
 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    
   </head>
 
   <body>
-    
+    <div class="container">   
+      <p class="text-right">
     <%= Time.now %>
     <% if user_signed_in? %>
+      <div class="text-right">
+      <ul class="list-inline">
        <li><%= link_to current_user.email, edit_user_registration_path %></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    </ul>
+    </div>
     <% else %>
       <li><%= link_to "Sign Up", new_user_registration_path %></li>
       <li><%= link_to "Login", new_user_session_path %></li>
     <% end %>
-    
-    <nav class="navbar navbar-inverse navbar-static-top">
+  </p>
+    </div>
+   <!--  <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
       <ul class="nav navbar-nav">
         <li><%= link_to "Kids", kids_path %></li>
@@ -44,6 +53,21 @@
       </ul>
     </div>
   </nav>
+ -->
+<div class="container">
+  <ul class="nav nav-tabs nav-justified" role="tablist">
+    <li class="active"><%= link_to "Candies", candies_path %></li>
+    <li><%= link_to "Kids", kids_path %></li>
+    <li><%= link_to "Appoint.", appointments_path %></li>
+    <li><%= link_to "Physi.", physicians_path %></li>
+    <li><%= link_to "Patients", patients_path %></li>
+    <li><%= link_to "Actors", actors_path %></li>
+    <li><%= link_to "Films", films_path %></li>
+    <li><%= link_to "Resumes", resumes_path %></li>
+    <li><%= link_to "Photos", photos_path %></li>
+        
+  </ul>
+</div>
 
   <div class="container">
 
@@ -51,7 +75,7 @@
       <div class="alert alert-warning"><%= alert %></div>
     <% end %>
 
-    
+    <br>
     <%= yield %>
   </div>
 

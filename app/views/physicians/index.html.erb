@@ -1,8 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <h1>Physicians</h1>
 <p>has_many:through Association</p>
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Physicians ID</th><th>Physicians Name</th>
@@ -14,9 +19,9 @@
     <% @physicians.each do |physician| %>
       <tr>
         <td><%= physician.id %></td><td><%= physician.name %></td>
-        <td><%= link_to 'Show', physician %></td>
-        <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
-        <td><%= link_to 'Destroy', physician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-share">Show'.html_safe, physician %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-edit">Edit'.html_safe, edit_physician_path(physician) %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-share">Destroy'.html_safe, physician, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Physician', new_physician_path %>
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i>New Physician'.html_safe, new_physician_path, class: "btn btn-primary" %>

@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <p>
   <strong>Physician ID:</strong>
@@ -44,5 +50,8 @@
 
 
 <br>
-<%= link_to 'Edit', edit_physician_path(@physician) %> |
-<%= link_to 'Back', physicians_path %>
+<%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe, edit_physician_path(@physician), class: "btn btn-primary" %>
+
+|
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>Back'.html_safe, physicians_path, class: "btn btn-warning" %>
+

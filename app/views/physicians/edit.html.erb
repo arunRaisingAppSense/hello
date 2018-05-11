@@ -2,5 +2,8 @@
 
 <%= render 'form', physician: @physician %>
 
-<%= link_to 'Show', @physician %> |
-<%= link_to 'Back', physicians_path %>
+
+<%= link_to '<i class="glyphicon glyphicon-share"></i>Show'.html_safe, @physician, class: "btn btn-primary" %>
+|
+
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>Back'.html_safe, physicians_path, class: "btn btn-warning" %>

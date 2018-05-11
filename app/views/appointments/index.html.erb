@@ -1,8 +1,17 @@
-<p id="notice"><%= notice %></p>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<div class="container">
+<!-- <p id="notice"><%= notice %></p> -->
 
 <h1>Appointments</h1>
 <p>has_many:through Association</p>
-<table>
+
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i>New Appointment'.html_safe, new_appointment_path, class: "btn btn-primary" %>
+<div class="table-responsive">  
+<table class="table">
   <thead>
     <tr>
       <th>Appointment ID</th><th>Physician ID</th>
@@ -19,14 +28,15 @@
         <td><%= appointment.physician_id %></td>
         <td><%= appointment.patient_id %></td>
         <td><%= appointment.appointment_date %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-share">Show'.html_safe, appointment %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-edit">Edit'.html_safe, edit_appointment_path(appointment) %></td>
+        <td><%= link_to '<i class="glyphicon glyphicon-trash">Destroy'.html_safe, appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Appointment', new_appointment_path %>
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i>New Appointment'.html_safe, new_appointment_path, class: "btn btn-primary" %>
+</div>

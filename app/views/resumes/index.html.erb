@@ -6,7 +6,7 @@
 
 <br />
 
-<%= link_to "New Resume", new_resume_path, class: "btn btn-primary" %>
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i>New Resume'.html_safe, new_resume_path, class: "btn btn-primary" %>
 <br />
 <br />
 
@@ -24,8 +24,10 @@
          
          <tr>
             <td><%= resume.name %></td>
-            <td><%= link_to "Download Resume", resume.attachment_url %></td>
-            <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+            <td><%= link_to '<i class="glyphicon glyphicon-download"></i>Download Resume'.html_safe, resume.attachment_url %></td>
+            <td><%= link_to  '<i class="glyphicon glyphicon-trash"></i>Delete'.html_safe, resume, method: :delete,confirm: "Are you sure that you wish to delete #{resume.name}?",class: "btn btn-danger"%>
+            </td>
+            
          </tr>
          
       <% end %>

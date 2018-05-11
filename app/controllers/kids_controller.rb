@@ -1,6 +1,6 @@
 class KidsController < ApplicationController
   layout 'mylayout'
-  before_action :authenticate_user!, except: [:index, :show, :kids]
+  before_action :authenticate_user!
   before_action :set_kid, only: [:show, :edit, :update, :destroy]
 
   # GET /kids

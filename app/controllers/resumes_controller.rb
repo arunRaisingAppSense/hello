@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
    layout 'mylayout'
-   before_action :authenticate_user! , except: [:index, :resumes]
+   before_action :authenticate_user! 
   def index
       @resumes = Resume.all
    end

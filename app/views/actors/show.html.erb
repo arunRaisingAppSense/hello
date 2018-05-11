@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<!-- <p id="notice"><%= notice %></p> -->
 
 <p>
   <strong>Name:</strong>

@@ -2,4 +2,5 @@
 
 <%= render 'form', appointment: @appointment %>
 
-<%= link_to 'Back', appointments_path %>
+
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>Back'.html_safe, appointments_path, class: "btn btn-warning" %>

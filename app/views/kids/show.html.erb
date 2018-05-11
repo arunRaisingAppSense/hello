@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<!-- <p id="notice"><%= notice %></p> -->
 
 <p>
   <strong>Name:</strong>
@@ -8,5 +14,6 @@
   <strong>Candy Names:</strong>
   <%= @kid.candies.map {|c| c.name}.join(', ') %>
 </p>
-<%= link_to 'Edit', edit_kid_path(@kid) %> |
-<%= link_to 'Back', kids_path %>
+
+<%= link_to '<i class="glyphicon glyphicon-edit"></i>Edit'.html_safe, edit_kid_path(@kid), class: "btn btn-primary" %>|
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>Back'.html_safe, kids_path, class: "btn btn-warning" %>
